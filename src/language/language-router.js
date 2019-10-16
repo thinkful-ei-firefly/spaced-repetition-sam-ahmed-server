@@ -72,24 +72,16 @@ languageRouter
         original
       )
       if (guess === translation.translation) {
-        LanguageService.handleCorrectAnswer(req.app.get('db'), language_id, original)
-          // .then(response => res.json({correct:true, ...response}))
+        const word = await LanguageService.handleCorrectAnswer(req.app.get('db'), language_id, original)
+        res.json({answer: guess, correct:true, ...word})
       } else {
-        LanguageService.handleIncorrectAnswer(req.app.get('db'), language_id, original)
-          .then(response => res.json({correct:false, ...response}))
+        const word = await LanguageService.handleIncorrectAnswer(req.app.get('db'), language_id, original)
+        res.json({answer: guess, correct:false, ...word})
       }
       next()
     } catch (error) {
       next(error)
     }
-    // send guess and original
-    // select * from table where original = submitted original
-    // does actual===guess (if)
-    // update score (if c)
-    // update word (in)correct
-    // update head
-    // update next values
-    // respond true/false
   })
 
 module.exports = languageRouter
