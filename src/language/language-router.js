@@ -73,7 +73,7 @@ languageRouter
       )
       if (guess === translation.translation) {
         LanguageService.handleCorrectAnswer(req.app.get('db'), language_id, original)
-          .then(response => res.json({correct:true, ...response}))
+          // .then(response => res.json({correct:true, ...response}))
       } else {
         LanguageService.handleIncorrectAnswer(req.app.get('db'), language_id, original)
           .then(response => res.json({correct:false, ...response}))
