@@ -28,7 +28,9 @@ VALUES
   (5, 1, 'aiuto', 'help', 6),
   (6, 1, 'perché', 'why', 7),
   (7, 1, 'dove', 'where', 8),
-  (8, 1, 'ristorante', 'restaurant', null);
+  (8, 1, 'ristorante', 'restaurant', 9),
+  (9, 1, 'buono', 'good', 10),
+  (10, 1, 'male', 'bad', null);
 
 UPDATE "language" SET head = 1 WHERE id = 1;
 
